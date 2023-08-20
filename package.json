@@ -1,0 +1,33 @@
+{
+  "name": "extension-name",
+  "description": "My extension description",
+  "authors": "author",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run lint && npm run format && node build.js",
+    "lint": "eslint --ext .js,.ts,.tsx .",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json|tsx)\""
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "4.10.1",
+    "sittly-devtools": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.20",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "esbuild": "0.19.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^38.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "^3.0.2",
+    "typescript": "5.1.6"
+  }
+}

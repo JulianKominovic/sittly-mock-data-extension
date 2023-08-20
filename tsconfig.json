@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "module": "ES2022",
+    "declaration": true,
+    "sourceMap": true,
+    "target": "ESNext",
+    "outDir": "dist-types",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true // Disallow `any` type declarations
+  },
+
+  "include": ["src", "typings.d.ts"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "build.js",
+    ".eslintrc.js",
+    "src/**/*.test.tsx",
+    "src/**/*.stories.tsx"
+  ]
+}
