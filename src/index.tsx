@@ -1,25 +1,27 @@
 import { BsFile } from 'react-icons/bs'
 import {
-  type ExtensionItems,
+  type ExtensionPages,
   type ExtensionMetadata
 } from 'sittly-devtools/dist/types'
-const { register, api } = window.SittlyDevtools
-const { notifications } = api
-const { sendNotification } = notifications
-const items: ExtensionItems = () => [
-  {
-    title: 'Template item',
-    description: 'Template item from template extension',
-    icon: <BsFile />,
-    onClick() {
-      sendNotification({
-        title: 'Template notification',
-        body: 'Template notification from template extension',
-        icon: 'face-smile'
-      })
-    }
+import { FAKER_CATEGORIES, getCategoryIcon } from './utils'
+import { mapFakerFunctions } from './mappers'
+
+const { components, register } = window.SittlyDevtools
+const { Command } = components
+const { List } = Command
+
+const pages: ExtensionPages = FAKER_CATEGORIES.map((category) => {
+  console.log(category)
+  return {
+    name: `Fake ${category}`,
+    icon: getCategoryIcon(category),
+    component: () => {
+      return <List id="faker-categories" items={mapFakerFunctions(category)} />
+    },
+    description: 'Generate fake data for ' + category,
+    route: `/${category}`
   }
-]
+})
 /**
  * Metadata is really important, it's used to display your extension in the app.
  * @see docs.com
@@ -32,6 +34,6 @@ const metadata: ExtensionMetadata = {
 }
 
 register({
-  items,
+  pages,
   metadata
 })
