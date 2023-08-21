@@ -255,11 +255,13 @@ function getCategoryIcon(category) {
     return /* @__PURE__ */ React.createElement(BsTypeH3, null);
 }
 __name(getCategoryIcon, "getCategoryIcon");
-function anyToString(anyObject) {
+function anyToString(anyObject, objectsOutput = "HUMAN") {
   if (Array.isArray(anyObject)) {
     return anyObject.join(", ");
   }
   if (typeof anyObject === "object") {
+    if (objectsOutput === "JSON")
+      return anyObject;
     return Object.values(anyObject).join(", ");
   }
   return String(anyObject);
@@ -5909,7 +5911,9 @@ var { useServices } = hooks;
 function onHighlight(generatorFunction, setContextMenuOptions) {
   const textToCopy = anyToString(generatorFunction());
   const bulkTextToCopy = JSON.stringify(
-    Array.from({ length: 50 }).map(() => anyToString(generatorFunction()))
+    Array.from({ length: 50 }).map(
+      () => anyToString(generatorFunction(), "JSON")
+    )
   );
   setContextMenuOptions([
     {

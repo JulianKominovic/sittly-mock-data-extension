@@ -15,7 +15,9 @@ function onHighlight(
 ) {
   const textToCopy = anyToString(generatorFunction())
   const bulkTextToCopy = JSON.stringify(
-    Array.from({ length: 50 }).map(() => anyToString(generatorFunction()))
+    Array.from({ length: 50 }).map(() =>
+      anyToString(generatorFunction(), 'JSON')
+    )
   )
   setContextMenuOptions([
     {

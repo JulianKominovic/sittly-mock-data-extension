@@ -51,11 +51,15 @@ export function getCategoryIcon(category: FakerCategories): React.ReactNode {
   if (category === 'word') return <BsTypeH3 />
 }
 
-export function anyToString(anyObject: any): string {
+export function anyToString(
+  anyObject: any,
+  objectsOutput: 'JSON' | 'HUMAN' = 'HUMAN'
+): string {
   if (Array.isArray(anyObject)) {
     return anyObject.join(', ')
   }
   if (typeof anyObject === 'object') {
+    if (objectsOutput === 'JSON') return anyObject
     return Object.values(anyObject).join(', ')
   }
   return String(anyObject)
