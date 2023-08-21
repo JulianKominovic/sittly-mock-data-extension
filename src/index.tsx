@@ -25,10 +25,10 @@ const pages: ExtensionPages = FAKER_CATEGORIES.map((category) => {
  * @see docs.com
  */
 const metadata: ExtensionMetadata = {
-  name: 'Template',
-  description: 'Template extension',
-  icon: <BsFile />,
-  repoUrl: 'https://github.com/JulianKominovic/sittly-extension-template'
+  name: 'Fake data generator',
+  description: 'Generate fake data using Faker.js',
+  icon: <img src="" />,
+  repoUrl: 'https://github.com/JulianKominovic/sittly-mock-data-extension'
 }
 
 register({
