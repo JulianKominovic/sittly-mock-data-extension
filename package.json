@@ -1,7 +1,7 @@
 {
-  "name": "extension-name",
-  "description": "My extension description",
-  "authors": "author",
+  "name": "fake-data-generator",
+  "description": "Generate fake data for your projects",
+  "authors": "Julian Kominovic",
   "version": "1.0.0",
   "scripts": {
     "build": "npm run lint && npm run format && node build.js",

@@ -1,4 +1,3 @@
-import { BsFile } from 'react-icons/bs'
 import {
   type ExtensionPages,
   type ExtensionMetadata
@@ -27,7 +26,9 @@ const pages: ExtensionPages = FAKER_CATEGORIES.map((category) => {
 const metadata: ExtensionMetadata = {
   name: 'Fake data generator',
   description: 'Generate fake data using Faker.js',
-  icon: <img src="" />,
+  icon: (
+    <img src="https://github.com/JulianKominovic/sittly-mock-data-extension/blob/main/assets/969shots_so.jpg?raw=true" />
+  ),
   repoUrl: 'https://github.com/JulianKominovic/sittly-mock-data-extension'
 }
 
