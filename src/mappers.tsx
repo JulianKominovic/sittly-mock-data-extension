@@ -2,7 +2,7 @@ import { type ListItem } from 'sittly-devtools/dist/types'
 import { type FakerCategories } from './types'
 import { faker } from '@faker-js/faker'
 import { sentenceCase } from 'sentence-case'
-import { BsClipboard } from 'react-icons/bs'
+import { BsClipboard, BsListCheck, BsListUl } from 'react-icons/bs'
 import { anyToString } from './utils'
 const { api, hooks } = window.SittlyDevtools
 const { clipboard } = api
@@ -10,15 +10,31 @@ const { pasteToCurrentWindow, copyToClipboard } = clipboard
 const { useServices } = hooks
 
 function onHighlight(
-  textToCopy: string,
+  generatorFunction: () => any,
   setContextMenuOptions: (contextMenuOptions: ListItem[]) => void
 ) {
+  const textToCopy = anyToString(generatorFunction())
+  const bulkTextToCopy = JSON.stringify(
+    Array.from({ length: 50 }).map(() => anyToString(generatorFunction()))
+  )
   setContextMenuOptions([
     {
       title: 'Copy',
       description: textToCopy + ' to clipboard',
       onClick: () => copyToClipboard(textToCopy),
       icon: <BsClipboard />
+    },
+    {
+      title: 'Bulk paste',
+      description: 'Paste 50 random values to clipboard',
+      onClick: () => pasteToCurrentWindow(bulkTextToCopy),
+      icon: <BsListUl />
+    },
+    {
+      title: 'Bulk copy',
+      description: 'Copy 50 random values to clipboard',
+      onClick: () => copyToClipboard(bulkTextToCopy),
+      icon: <BsListCheck />
     }
   ])
 }
@@ -33,21 +49,24 @@ function mapFakerAirlineFunctions(): ListItem[] {
       description: 'Generate a random airline name',
       onClick: () => pasteToCurrentWindow(faker.airline.airline().name),
       onHighlight: () =>
-        onHighlight(faker.airline.airline().name, setContextMenuOptions)
+        onHighlight(() => faker.airline.airline().name, setContextMenuOptions)
     },
     {
       title: 'Airline IATA code',
       description: 'Generate a random airline IATA code',
       onClick: () => pasteToCurrentWindow(faker.airline.airline().iataCode),
       onHighlight: () =>
-        onHighlight(faker.airline.airline().iataCode, setContextMenuOptions)
+        onHighlight(
+          () => faker.airline.airline().iataCode,
+          setContextMenuOptions
+        )
     },
     {
       title: 'Airplane name',
       description: 'Generate a random airplane name',
       onClick: () => pasteToCurrentWindow(faker.airline.airplane().name),
       onHighlight: () =>
-        onHighlight(faker.airline.airplane().name, setContextMenuOptions)
+        onHighlight(() => faker.airline.airplane().name, setContextMenuOptions)
     },
     {
       title: 'Airplane IATA code',
@@ -56,7 +75,7 @@ function mapFakerAirlineFunctions(): ListItem[] {
         pasteToCurrentWindow(faker.airline.airplane().iataTypeCode),
       onHighlight: () =>
         onHighlight(
-          faker.airline.airplane().iataTypeCode,
+          () => faker.airline.airplane().iataTypeCode,
           setContextMenuOptions
         )
     },
@@ -65,21 +84,24 @@ function mapFakerAirlineFunctions(): ListItem[] {
       description: 'Generate a random airport name',
       onClick: () => pasteToCurrentWindow(faker.airline.airport().name),
       onHighlight: () =>
-        onHighlight(faker.airline.airport().name, setContextMenuOptions)
+        onHighlight(() => faker.airline.airport().name, setContextMenuOptions)
     },
     {
       title: 'Airport IATA code',
       description: 'Generate a random airport IATA code',
       onClick: () => pasteToCurrentWindow(faker.airline.airport().iataCode),
       onHighlight: () =>
-        onHighlight(faker.airline.airport().iataCode, setContextMenuOptions)
+        onHighlight(
+          () => faker.airline.airport().iataCode,
+          setContextMenuOptions
+        )
     },
     {
       title: 'Flight number',
       description: 'Generate a random flight number',
       onClick: () => pasteToCurrentWindow(faker.airline.flightNumber()),
       onHighlight: () =>
-        onHighlight(faker.airline.flightNumber(), setContextMenuOptions)
+        onHighlight(() => faker.airline.flightNumber(), setContextMenuOptions)
     }
   ]
 }
@@ -98,8 +120,7 @@ function mapFakerColorFunctions(): ListItem[] {
       title: humanizedKey,
       description: 'Generate a random ' + humanizedKey + ' color',
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () =>
-        onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     }
   })
 }
@@ -118,7 +139,10 @@ function mapFakerLoremFunctions(): ListItem[] {
         description: `Generate ${index + 1} random lorem paragraphs`,
         onClick: () => pasteToCurrentWindow(faker.lorem.paragraphs(index + 1)),
         onHighlight: () =>
-          onHighlight(faker.lorem.paragraphs(index + 1), setContextMenuOptions)
+          onHighlight(
+            () => faker.lorem.paragraphs(index + 1),
+            setContextMenuOptions
+          )
       }
     })
     .filter(Boolean) as ListItem[]
@@ -140,8 +164,7 @@ function mapFakerInternetFunctions(): ListItem[] {
       title: humanizedKey,
       description: 'Generate a random ' + humanizedKey,
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () =>
-        onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     }
   })
 }
@@ -160,8 +183,7 @@ function mapFakerFinanceFunctions(): ListItem[] {
       title: humanizedKey,
       description: 'Generate a random ' + humanizedKey,
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () =>
-        onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     }
   })
 }

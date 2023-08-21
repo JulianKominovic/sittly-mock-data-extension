@@ -156,6 +156,14 @@ function BsImage(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" } }, { "tag": "path", "attr": { "d": "M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" } }] })(props);
 }
 __name(BsImage, "BsImage");
+function BsListCheck(props) {
+  return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "fillRule": "evenodd", "d": "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" } }] })(props);
+}
+__name(BsListCheck, "BsListCheck");
+function BsListUl(props) {
+  return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "fillRule": "evenodd", "d": "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" } }] })(props);
+}
+__name(BsListUl, "BsListUl");
 function BsMortarboard(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z" } }, { "tag": "path", "attr": { "d": "M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z" } }] })(props);
 }
@@ -5898,13 +5906,29 @@ var { api, hooks } = window.SittlyDevtools;
 var { clipboard } = api;
 var { pasteToCurrentWindow, copyToClipboard } = clipboard;
 var { useServices } = hooks;
-function onHighlight(textToCopy, setContextMenuOptions) {
+function onHighlight(generatorFunction, setContextMenuOptions) {
+  const textToCopy = anyToString(generatorFunction());
+  const bulkTextToCopy = JSON.stringify(
+    Array.from({ length: 50 }).map(() => anyToString(generatorFunction()))
+  );
   setContextMenuOptions([
     {
       title: "Copy",
       description: textToCopy + " to clipboard",
       onClick: () => copyToClipboard(textToCopy),
       icon: /* @__PURE__ */ React.createElement(BsClipboard, null)
+    },
+    {
+      title: "Bulk paste",
+      description: "Paste 50 random values to clipboard",
+      onClick: () => pasteToCurrentWindow(bulkTextToCopy),
+      icon: /* @__PURE__ */ React.createElement(BsListUl, null)
+    },
+    {
+      title: "Bulk copy",
+      description: "Copy 50 random values to clipboard",
+      onClick: () => copyToClipboard(bulkTextToCopy),
+      icon: /* @__PURE__ */ React.createElement(BsListCheck, null)
     }
   ]);
 }
@@ -5918,26 +5942,29 @@ function mapFakerAirlineFunctions() {
       title: "Airline name",
       description: "Generate a random airline name",
       onClick: () => pasteToCurrentWindow(f51.airline.airline().name),
-      onHighlight: () => onHighlight(f51.airline.airline().name, setContextMenuOptions)
+      onHighlight: () => onHighlight(() => f51.airline.airline().name, setContextMenuOptions)
     },
     {
       title: "Airline IATA code",
       description: "Generate a random airline IATA code",
       onClick: () => pasteToCurrentWindow(f51.airline.airline().iataCode),
-      onHighlight: () => onHighlight(f51.airline.airline().iataCode, setContextMenuOptions)
+      onHighlight: () => onHighlight(
+        () => f51.airline.airline().iataCode,
+        setContextMenuOptions
+      )
     },
     {
       title: "Airplane name",
       description: "Generate a random airplane name",
       onClick: () => pasteToCurrentWindow(f51.airline.airplane().name),
-      onHighlight: () => onHighlight(f51.airline.airplane().name, setContextMenuOptions)
+      onHighlight: () => onHighlight(() => f51.airline.airplane().name, setContextMenuOptions)
     },
     {
       title: "Airplane IATA code",
       description: "Generate a random airplane IATA code",
       onClick: () => pasteToCurrentWindow(f51.airline.airplane().iataTypeCode),
       onHighlight: () => onHighlight(
-        f51.airline.airplane().iataTypeCode,
+        () => f51.airline.airplane().iataTypeCode,
         setContextMenuOptions
       )
     },
@@ -5945,19 +5972,22 @@ function mapFakerAirlineFunctions() {
       title: "Airport name",
       description: "Generate a random airport name",
       onClick: () => pasteToCurrentWindow(f51.airline.airport().name),
-      onHighlight: () => onHighlight(f51.airline.airport().name, setContextMenuOptions)
+      onHighlight: () => onHighlight(() => f51.airline.airport().name, setContextMenuOptions)
     },
     {
       title: "Airport IATA code",
       description: "Generate a random airport IATA code",
       onClick: () => pasteToCurrentWindow(f51.airline.airport().iataCode),
-      onHighlight: () => onHighlight(f51.airline.airport().iataCode, setContextMenuOptions)
+      onHighlight: () => onHighlight(
+        () => f51.airline.airport().iataCode,
+        setContextMenuOptions
+      )
     },
     {
       title: "Flight number",
       description: "Generate a random flight number",
       onClick: () => pasteToCurrentWindow(f51.airline.flightNumber()),
-      onHighlight: () => onHighlight(f51.airline.flightNumber(), setContextMenuOptions)
+      onHighlight: () => onHighlight(() => f51.airline.flightNumber(), setContextMenuOptions)
     }
   ];
 }
@@ -5975,7 +6005,7 @@ function mapFakerColorFunctions() {
       title: humanizedKey,
       description: "Generate a random " + humanizedKey + " color",
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     };
   });
 }
@@ -5993,7 +6023,10 @@ function mapFakerLoremFunctions() {
       title: index + 1 + " lorem paragraphs",
       description: `Generate ${index + 1} random lorem paragraphs`,
       onClick: () => pasteToCurrentWindow(f51.lorem.paragraphs(index + 1)),
-      onHighlight: () => onHighlight(f51.lorem.paragraphs(index + 1), setContextMenuOptions)
+      onHighlight: () => onHighlight(
+        () => f51.lorem.paragraphs(index + 1),
+        setContextMenuOptions
+      )
     };
   }).filter(Boolean);
   return [...loremParagraphs];
@@ -6012,7 +6045,7 @@ function mapFakerInternetFunctions() {
       title: humanizedKey,
       description: "Generate a random " + humanizedKey,
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     };
   });
 }
@@ -6030,7 +6063,7 @@ function mapFakerFinanceFunctions() {
       title: humanizedKey,
       description: "Generate a random " + humanizedKey,
       onClick: () => pasteToCurrentWindow(anyToString(value())),
-      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
+      onHighlight: () => onHighlight(value, setContextMenuOptions)
     };
   });
 }
