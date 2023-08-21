@@ -1,6 +1,8 @@
 import { type ListItem } from 'sittly-devtools/dist/types'
 import { type FakerCategories } from './types'
 import { faker } from '@faker-js/faker'
+import { sentenceCase } from 'sentence-case'
+import { BsClipboard } from 'react-icons/bs'
 const { api, hooks } = window.SittlyDevtools
 const { clipboard } = api
 const { pasteToCurrentWindow, copyToClipboard } = clipboard
@@ -13,8 +15,9 @@ function onHighlight(
   setContextMenuOptions([
     {
       title: 'Copy',
-      description: 'Copy ' + textToCopy + ' to clipboard',
-      onClick: () => copyToClipboard(textToCopy)
+      description: textToCopy + ' to clipboard',
+      onClick: () => copyToClipboard(textToCopy),
+      icon: <BsClipboard />
     }
   ])
 }
@@ -80,9 +83,39 @@ function mapFakerAirlineFunctions(): ListItem[] {
   ]
 }
 
+function mapFakerColorFunctions(): ListItem[] {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  )
+  const colorFunctions = Object.entries(faker.color).filter(
+    ([key]) => key !== 'faker'
+  )
+  function handleFunctionReturn(
+    returnValue: string | number[] | string[]
+  ): string {
+    if (Array.isArray(returnValue)) {
+      return returnValue.join(', ')
+    }
+    return returnValue
+  }
+  return colorFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key)
+    return {
+      title: humanizedKey,
+      description: 'Generate a random ' + humanizedKey + ' color',
+      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onHighlight: () =>
+        onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+    }
+  })
+}
+
 export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   if (fakerCategory === 'airline') {
     return mapFakerAirlineFunctions()
+  }
+  if (fakerCategory === 'color') {
+    return mapFakerColorFunctions()
   }
   return []
 }

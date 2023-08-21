@@ -124,6 +124,10 @@ function BsCarFront(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z" } }, { "tag": "path", "attr": { "d": "M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z" } }] })(props);
 }
 __name(BsCarFront, "BsCarFront");
+function BsClipboard(props) {
+  return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" } }, { "tag": "path", "attr": { "d": "M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" } }] })(props);
+}
+__name(BsClipboard, "BsClipboard");
 function BsCoin(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" } }, { "tag": "path", "attr": { "d": "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" } }, { "tag": "path", "attr": { "d": "M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" } }] })(props);
 }
@@ -5810,7 +5814,76 @@ var Fa2 = new De2({ locale: [I44, cr, jl, mn] });
 var r38 = {};
 Nr(r38, { af_ZA: () => B55, ar: () => W36, az: () => U36, base: () => mn, cs_CZ: () => _53, de: () => cr, de_AT: () => I44, de_CH: () => J39, dv: () => R40, el: () => le8, en: () => jl, en_AU: () => be7, en_AU_ocker: () => P51, en_BORK: () => u52, en_CA: () => S47, en_GB: () => D43, en_GH: () => J36, en_HK: () => w41, en_IE: () => _43, en_IN: () => w42, en_NG: () => O37, en_US: () => d48, en_ZA: () => L48, es: () => We2, es_MX: () => ia7, fa: () => bo, fi: () => f36, fr: () => wi, fr_BE: () => x38, fr_CA: () => b40, fr_CH: () => Re4, fr_LU: () => _28, he: () => X20, hr: () => N30, hu: () => Z25, hy: () => j28, id_ID: () => F28, it: () => w32, ja: () => J30, ka_GE: () => H17, ko: () => G17, lv: () => aa6, mk: () => R19, nb_NO: () => Z19, ne: () => P24, nl: () => Ua2, nl_BE: () => j23, pl: () => ra3, pt_BR: () => W10, pt_PT: () => w14, ro: () => Mi, ro_MD: () => j12, ru: () => ae2, sk: () => C16, sr_RS_latin: () => J15, sv: () => $3, th: () => E4, tr: () => Z6, uk: () => S6, ur: () => Dt, vi: () => X7, zh_CN: () => F8, zh_TW: () => W8, zu_ZA: () => x2 });
 
-// src/mappers.ts
+// node_modules/.pnpm/tslib@2.6.2/node_modules/tslib/tslib.es6.mjs
+var __assign2 = /* @__PURE__ */ __name(function() {
+  __assign2 = Object.assign || /* @__PURE__ */ __name(function __assign3(t40) {
+    for (var s57, i47 = 1, n40 = arguments.length; i47 < n40; i47++) {
+      s57 = arguments[i47];
+      for (var p63 in s57)
+        if (Object.prototype.hasOwnProperty.call(s57, p63))
+          t40[p63] = s57[p63];
+    }
+    return t40;
+  }, "__assign");
+  return __assign2.apply(this, arguments);
+}, "__assign");
+
+// node_modules/.pnpm/lower-case@2.0.2/node_modules/lower-case/dist.es2015/index.js
+function lowerCase(str) {
+  return str.toLowerCase();
+}
+__name(lowerCase, "lowerCase");
+
+// node_modules/.pnpm/no-case@3.0.4/node_modules/no-case/dist.es2015/index.js
+var DEFAULT_SPLIT_REGEXP = [/([a-z0-9])([A-Z])/g, /([A-Z])([A-Z][a-z])/g];
+var DEFAULT_STRIP_REGEXP = /[^A-Z0-9]+/gi;
+function noCase(input, options) {
+  if (options === void 0) {
+    options = {};
+  }
+  var _a2 = options.splitRegexp, splitRegexp = _a2 === void 0 ? DEFAULT_SPLIT_REGEXP : _a2, _b = options.stripRegexp, stripRegexp = _b === void 0 ? DEFAULT_STRIP_REGEXP : _b, _c = options.transform, transform = _c === void 0 ? lowerCase : _c, _d = options.delimiter, delimiter = _d === void 0 ? " " : _d;
+  var result = replace(replace(input, splitRegexp, "$1\0$2"), stripRegexp, "\0");
+  var start = 0;
+  var end = result.length;
+  while (result.charAt(start) === "\0")
+    start++;
+  while (result.charAt(end - 1) === "\0")
+    end--;
+  return result.slice(start, end).split("\0").map(transform).join(delimiter);
+}
+__name(noCase, "noCase");
+function replace(input, re11, value) {
+  if (re11 instanceof RegExp)
+    return input.replace(re11, value);
+  return re11.reduce(function(input2, re12) {
+    return input2.replace(re12, value);
+  }, input);
+}
+__name(replace, "replace");
+
+// node_modules/.pnpm/upper-case-first@2.0.2/node_modules/upper-case-first/dist.es2015/index.js
+function upperCaseFirst(input) {
+  return input.charAt(0).toUpperCase() + input.substr(1);
+}
+__name(upperCaseFirst, "upperCaseFirst");
+
+// node_modules/.pnpm/sentence-case@3.0.4/node_modules/sentence-case/dist.es2015/index.js
+function sentenceCaseTransform(input, index) {
+  var result = input.toLowerCase();
+  if (index === 0)
+    return upperCaseFirst(result);
+  return result;
+}
+__name(sentenceCaseTransform, "sentenceCaseTransform");
+function sentenceCase(input, options) {
+  if (options === void 0) {
+    options = {};
+  }
+  return noCase(input, __assign2({ delimiter: " ", transform: sentenceCaseTransform }, options));
+}
+__name(sentenceCase, "sentenceCase");
+
+// src/mappers.tsx
 var { api, hooks } = window.SittlyDevtools;
 var { clipboard } = api;
 var { pasteToCurrentWindow, copyToClipboard } = clipboard;
@@ -5819,8 +5892,9 @@ function onHighlight(textToCopy, setContextMenuOptions) {
   setContextMenuOptions([
     {
       title: "Copy",
-      description: "Copy " + textToCopy + " to clipboard",
-      onClick: () => copyToClipboard(textToCopy)
+      description: textToCopy + " to clipboard",
+      onClick: () => copyToClipboard(textToCopy),
+      icon: /* @__PURE__ */ React.createElement(BsClipboard, null)
     }
   ]);
 }
@@ -5878,9 +5952,37 @@ function mapFakerAirlineFunctions() {
   ];
 }
 __name(mapFakerAirlineFunctions, "mapFakerAirlineFunctions");
+function mapFakerColorFunctions() {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  );
+  const colorFunctions = Object.entries(f51.color).filter(
+    ([key]) => key !== "faker"
+  );
+  function handleFunctionReturn(returnValue) {
+    if (Array.isArray(returnValue)) {
+      return returnValue.join(", ");
+    }
+    return returnValue;
+  }
+  __name(handleFunctionReturn, "handleFunctionReturn");
+  return colorFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key);
+    return {
+      title: humanizedKey,
+      description: "Generate a random " + humanizedKey + " color",
+      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onHighlight: () => onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+    };
+  });
+}
+__name(mapFakerColorFunctions, "mapFakerColorFunctions");
 var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   if (fakerCategory === "airline") {
     return mapFakerAirlineFunctions();
+  }
+  if (fakerCategory === "color") {
+    return mapFakerColorFunctions();
   }
   return [];
 }, "mapFakerFunctions");
