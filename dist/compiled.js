@@ -5977,12 +5977,34 @@ function mapFakerColorFunctions() {
   });
 }
 __name(mapFakerColorFunctions, "mapFakerColorFunctions");
+function mapFakerLoremFunctions() {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  );
+  const loremParagraphs = Array.from({
+    length: 30
+  }).map((_55, index) => {
+    if ((index + 1) % 5 !== 0)
+      return null;
+    return {
+      title: index + 1 + " lorem paragraphs",
+      description: `Generate ${index + 1} random lorem paragraphs`,
+      onClick: () => pasteToCurrentWindow(f51.lorem.paragraphs(index + 1)),
+      onHighlight: () => onHighlight(f51.lorem.paragraphs(index + 1), setContextMenuOptions)
+    };
+  }).filter(Boolean);
+  return [...loremParagraphs];
+}
+__name(mapFakerLoremFunctions, "mapFakerLoremFunctions");
 var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   if (fakerCategory === "airline") {
     return mapFakerAirlineFunctions();
   }
   if (fakerCategory === "color") {
     return mapFakerColorFunctions();
+  }
+  if (fakerCategory === "lorem") {
+    return mapFakerLoremFunctions();
   }
   return [];
 }, "mapFakerFunctions");

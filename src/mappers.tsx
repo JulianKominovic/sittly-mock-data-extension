@@ -110,12 +110,37 @@ function mapFakerColorFunctions(): ListItem[] {
   })
 }
 
+function mapFakerLoremFunctions(): ListItem[] {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  )
+  const loremParagraphs: ListItem[] = Array.from({
+    length: 50
+  })
+    .map((_, index) => {
+      if ((index + 1) % 5 !== 0) return null
+      return {
+        title: index + 1 + ' lorem paragraphs',
+        description: `Generate ${index + 1} random lorem paragraphs`,
+        onClick: () => pasteToCurrentWindow(faker.lorem.paragraphs(index + 1)),
+        onHighlight: () =>
+          onHighlight(faker.lorem.paragraphs(index + 1), setContextMenuOptions)
+      }
+    })
+    .filter(Boolean) as ListItem[]
+
+  return [...loremParagraphs]
+}
+
 export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   if (fakerCategory === 'airline') {
     return mapFakerAirlineFunctions()
   }
   if (fakerCategory === 'color') {
     return mapFakerColorFunctions()
+  }
+  if (fakerCategory === 'lorem') {
+    return mapFakerLoremFunctions()
   }
   return []
 }
