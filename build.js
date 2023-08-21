@@ -5,7 +5,7 @@ const { build } = require('esbuild')
 build({
   entryPoints: ['src/index.tsx'],
   bundle: true,
-  minify: false,
+  minify: true,
   keepNames: true,
   minifyIdentifiers: false,
   minifySyntax: false,
