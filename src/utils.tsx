@@ -74,7 +74,7 @@ export const FAKER_CATEGORIES: FakerCategories[] = [
   'finance',
   // 'git',
   // 'hacker',
-  // 'image',
+  'image',
   'internet',
   // 'location',
   'lorem'

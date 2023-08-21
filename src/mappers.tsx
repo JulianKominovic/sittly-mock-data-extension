@@ -206,5 +206,6 @@ export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   if (fakerCategory === 'finance') {
     return mapFakerFinanceFunctions()
   }
+
   return []
 }

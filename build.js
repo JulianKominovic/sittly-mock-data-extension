@@ -16,22 +16,26 @@ build({
   format: 'cjs'
 })
   .then(({ outputFiles }) => {
-    const outputFileText = outputFiles[0].text
+    let outputFileText = outputFiles[0].text
 
     console.log('Build complete!')
     // Must replace sittly-devtools require by window.SittlyDevtools (must share the same instance with the app)
-    const replacedSittly = outputFileText.replaceAll(
+    outputFileText = outputFileText.replaceAll(
       '__toESM(require("sittly-devtools"))',
       '{default:window.SittlyDevtools}'
     )
 
     // Must replace react require by window.React (must share the same instance with the app)
-    const replacedReact = replacedSittly.replaceAll(
+    outputFileText = outputFileText.replaceAll(
       '__toESM(require("react"))',
       '{default:window.React}'
     )
+    outputFileText = outputFileText.replaceAll(
+      'require("react")',
+      'window.React'
+    )
 
-    require('fs').writeFileSync('dist/compiled.js', replacedReact)
+    require('fs').writeFileSync('dist/compiled.js', outputFileText)
   })
   .catch((err) => {
     console.error(err)

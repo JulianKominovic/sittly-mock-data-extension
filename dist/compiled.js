@@ -116,6 +116,10 @@ function BsAirplane(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z" } }] })(props);
 }
 __name(BsAirplane, "BsAirplane");
+function BsBoxArrowUpLeft(props) {
+  return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "fillRule": "evenodd", "d": "M7.364 3.5a.5.5 0 0 1 .5-.5H14.5A1.5 1.5 0 0 1 16 4.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 14.5V7.864a.5.5 0 1 1 1 0V14.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H7.864a.5.5 0 0 1-.5-.5z" } }, { "tag": "path", "attr": { "fillRule": "evenodd", "d": "M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 0 1H1.707l8.147 8.146a.5.5 0 0 1-.708.708L1 1.707V5.5a.5.5 0 0 1-1 0v-5z" } }] })(props);
+}
+__name(BsBoxArrowUpLeft, "BsBoxArrowUpLeft");
 function BsCalendar(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" } }] })(props);
 }
@@ -136,6 +140,10 @@ function BsCurrencyDollar(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z" } }] })(props);
 }
 __name(BsCurrencyDollar, "BsCurrencyDollar");
+function BsDownload(props) {
+  return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" } }, { "tag": "path", "attr": { "d": "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" } }] })(props);
+}
+__name(BsDownload, "BsDownload");
 function BsEyeglasses(props) {
   return GenIcon({ "tag": "svg", "attr": { "fill": "currentColor", "viewBox": "0 0 16 16" }, "child": [{ "tag": "path", "attr": { "d": "M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" } }] })(props);
 }
@@ -276,7 +284,7 @@ var FAKER_CATEGORIES = [
   "finance",
   // 'git',
   // 'hacker',
-  // 'image',
+  "image",
   "internet",
   // 'location',
   "lorem"
@@ -290,6 +298,9 @@ var FAKER_CATEGORIES = [
   // 'vehicle',
   // 'word'
 ];
+
+// src/components.tsx
+var import_react3 = window.React;
 
 // node_modules/.pnpm/@faker-js+faker@8.0.2/node_modules/@faker-js/faker/dist/esm/chunk-TN4M2PHH.mjs
 var i = [{ name: "Aegean Airlines", iataCode: "A3" }, { name: "Aeroflot", iataCode: "SU" }, { name: "Aerolineas Argentinas", iataCode: "AR" }, { name: "Aeromexico", iataCode: "AM" }, { name: "Air Algerie", iataCode: "AH" }, { name: "Air Arabia", iataCode: "G9" }, { name: "Air Canada", iataCode: "AC" }, { name: "Air China", iataCode: "CA" }, { name: "Air Europa", iataCode: "UX" }, { name: "Air France-KLM", iataCode: "AF" }, { name: "Air India", iataCode: "AI" }, { name: "Air Mauritius", iataCode: "MK" }, { name: "Air New Zealand", iataCode: "NZ" }, { name: "Air Niugini", iataCode: "PX" }, { name: "Air Tahiti", iataCode: "VT" }, { name: "Air Tahiti Nui", iataCode: "TN" }, { name: "Air Transat", iataCode: "TS" }, { name: "AirAsia X", iataCode: "D7" }, { name: "AirAsia", iataCode: "AK" }, { name: "Aircalin", iataCode: "SB" }, { name: "Alaska Airlines", iataCode: "AS" }, { name: "Alitalia", iataCode: "AZ" }, { name: "All Nippon Airways", iataCode: "NH" }, { name: "Allegiant Air", iataCode: "G4" }, { name: "American Airlines", iataCode: "AA" }, { name: "Asiana Airlines", iataCode: "OZ" }, { name: "Avianca", iataCode: "AV" }, { name: "Azul Linhas Aereas Brasileiras", iataCode: "AD" }, { name: "Azur Air", iataCode: "ZF" }, { name: "Beijing Capital Airlines", iataCode: "JD" }, { name: "Boliviana de Aviacion", iataCode: "OB" }, { name: "British Airways", iataCode: "BA" }, { name: "Cathay Pacific", iataCode: "CX" }, { name: "Cebu Pacific Air", iataCode: "5J" }, { name: "China Airlines", iataCode: "CI" }, { name: "China Eastern Airlines", iataCode: "MU" }, { name: "China Southern Airlines", iataCode: "CZ" }, { name: "Condor", iataCode: "DE" }, { name: "Copa Airlines", iataCode: "CM" }, { name: "Delta Air Lines", iataCode: "DL" }, { name: "Easyfly", iataCode: "VE" }, { name: "EasyJet", iataCode: "U2" }, { name: "EcoJet", iataCode: "8J" }, { name: "Egyptair", iataCode: "MS" }, { name: "El Al", iataCode: "LY" }, { name: "Emirates Airlines", iataCode: "EK" }, { name: "Ethiopian Airlines", iataCode: "ET" }, { name: "Etihad Airways", iataCode: "EY" }, { name: "EVA Air", iataCode: "BR" }, { name: "Fiji Airways", iataCode: "FJ" }, { name: "Finnair", iataCode: "AY" }, { name: "Flybondi", iataCode: "FO" }, { name: "Flydubai", iataCode: "FZ" }, { name: "FlySafair", iataCode: "FA" }, { name: "Frontier Airlines", iataCode: "F9" }, { name: "Garuda Indonesia", iataCode: "GA" }, { name: "Go First", iataCode: "G8" }, { name: "Gol Linhas Aereas Inteligentes", iataCode: "G3" }, { name: "Hainan Airlines", iataCode: "HU" }, { name: "Hawaiian Airlines", iataCode: "HA" }, { name: "IndiGo Airlines", iataCode: "6E" }, { name: "Japan Airlines", iataCode: "JL" }, { name: "Jeju Air", iataCode: "7C" }, { name: "Jet2", iataCode: "LS" }, { name: "JetBlue Airways", iataCode: "B6" }, { name: "JetSMART", iataCode: "JA" }, { name: "Juneyao Airlines", iataCode: "HO" }, { name: "Kenya Airways", iataCode: "KQ" }, { name: "Korean Air", iataCode: "KE" }, { name: "Kulula.com", iataCode: "MN" }, { name: "LATAM Airlines", iataCode: "LA" }, { name: "Lion Air", iataCode: "JT" }, { name: "LOT Polish Airlines", iataCode: "LO" }, { name: "Lufthansa", iataCode: "LH" }, { name: "Libyan Airlines", iataCode: "LN" }, { name: "Linea Aerea Amaszonas", iataCode: "Z8" }, { name: "Malaysia Airlines", iataCode: "MH" }, { name: "Nordwind Airlines", iataCode: "N4" }, { name: "Norwegian Air Shuttle", iataCode: "DY" }, { name: "Oman Air", iataCode: "WY" }, { name: "Pakistan International Airlines", iataCode: "PK" }, { name: "Pegasus Airlines", iataCode: "PC" }, { name: "Philippine Airlines", iataCode: "PR" }, { name: "Qantas Group", iataCode: "QF" }, { name: "Qatar Airways", iataCode: "QR" }, { name: "Republic Airways", iataCode: "YX" }, { name: "Royal Air Maroc", iataCode: "AT" }, { name: "Ryanair", iataCode: "FR" }, { name: "S7 Airlines", iataCode: "S7" }, { name: "SAS", iataCode: "SK" }, { name: "Satena", iataCode: "9R" }, { name: "Saudia", iataCode: "SV" }, { name: "Shandong Airlines", iataCode: "SC" }, { name: "Sichuan Airlines", iataCode: "3U" }, { name: "Singapore Airlines", iataCode: "SQ" }, { name: "Sky Airline", iataCode: "H2" }, { name: "SkyWest Airlines", iataCode: "OO" }, { name: "South African Airways", iataCode: "SA" }, { name: "Southwest Airlines", iataCode: "WN" }, { name: "SpiceJet", iataCode: "SG" }, { name: "Spirit Airlines", iataCode: "NK" }, { name: "Spring Airlines", iataCode: "9S" }, { name: "SriLankan Airlines", iataCode: "UL" }, { name: "Star Peru", iataCode: "2I" }, { name: "Sun Country Airlines", iataCode: "SY" }, { name: "SunExpress", iataCode: "XQ" }, { name: "TAP Air Portugal", iataCode: "TP" }, { name: "Thai AirAsia", iataCode: "FD" }, { name: "Thai Airways", iataCode: "TG" }, { name: "TUI Airways", iataCode: "BY" }, { name: "Tunisair", iataCode: "TU" }, { name: "Turkish Airlines", iataCode: "TK" }, { name: "Ukraine International", iataCode: "PS" }, { name: "United Airlines", iataCode: "UA" }, { name: "Ural Airlines", iataCode: "U6" }, { name: "VietJet Air", iataCode: "VJ" }, { name: "Vietnam Airlines", iataCode: "VN" }, { name: "Virgin Atlantic Airways", iataCode: "VS" }, { name: "Virgin Australia", iataCode: "VA" }, { name: "VivaAerobus", iataCode: "VB" }, { name: "VOEPASS Linhas Aereas", iataCode: "2Z" }, { name: "Volaris", iataCode: "Y4" }, { name: "WestJet", iataCode: "WS" }, { name: "Wingo", iataCode: "P5" }, { name: "Wizz Air", iataCode: "W6" }];
@@ -6091,17 +6102,136 @@ var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   return [];
 }, "mapFakerFunctions");
 
-// src/index.tsx
-var { components, register } = window.SittlyDevtools;
-var { Command } = components;
+// src/components.tsx
+var { components, api: api2, hooks: hooks2 } = window.SittlyDevtools;
+var { Command, Fieldset, Input, Button } = components;
 var { List } = Command;
+var { useServices: useServices2 } = hooks2;
+var { clipboard: clipboard2, files } = api2;
+var { saveImage } = files;
+var { copyToClipboard: copyToClipboard2, pasteToCurrentWindow: pasteToCurrentWindow2 } = clipboard2;
+function RenderList({ category }) {
+  return /* @__PURE__ */ React.createElement(List, { id: "faker-categories", items: mapFakerFunctions(category) });
+}
+__name(RenderList, "RenderList");
+function RenderImageGenerator() {
+  const [image, setImage] = (0, import_react3.useState)({
+    url: "",
+    state: "FINISH"
+  });
+  const setContextMenuOptions = useServices2(
+    (state) => state.setContextMenuOptions
+  );
+  return /* @__PURE__ */ React.createElement(
+    "form",
+    {
+      style: {
+        padding: "12px",
+        overflow: "auto"
+      },
+      onSubmit: (e28) => {
+        e28.preventDefault();
+        const formData = new FormData(e28.target);
+        const topic = formData.get("topic");
+        const url = f51.image.urlLoremFlickr({
+          category: topic
+        });
+        setImage({
+          state: "LOADING",
+          url
+        });
+        setContextMenuOptions([
+          {
+            title: "Copy image URL",
+            description: "to the clipboard",
+            onClick: () => {
+              copyToClipboard2(url);
+            },
+            icon: /* @__PURE__ */ React.createElement(BsClipboard, null)
+          },
+          {
+            title: "Paste image URL",
+            description: "to current window",
+            onClick: () => {
+              pasteToCurrentWindow2(url);
+            },
+            icon: /* @__PURE__ */ React.createElement(BsBoxArrowUpLeft, null)
+          },
+          {
+            title: "Save image",
+            description: "to disk ",
+            onClick: () => {
+              saveImage(url);
+            },
+            icon: /* @__PURE__ */ React.createElement(BsDownload, null)
+          }
+        ]);
+      }
+    },
+    /* @__PURE__ */ React.createElement(
+      "hgroup",
+      {
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: "12px"
+        }
+      },
+      /* @__PURE__ */ React.createElement(
+        Input,
+        {
+          name: "topic",
+          type: "text",
+          style: {
+            flexGrow: 1
+          }
+        },
+        /* @__PURE__ */ React.createElement(
+          Fieldset.Label,
+          {
+            style: {
+              whiteSpace: "nowrap"
+            }
+          },
+          "Search a topic"
+        )
+      ),
+      /* @__PURE__ */ React.createElement(
+        Button,
+        {
+          style: {
+            height: "34px"
+          }
+        },
+        "Generate"
+      )
+    ),
+    /* @__PURE__ */ React.createElement(
+      "img",
+      {
+        src: image.url,
+        alt: "Generated image",
+        onLoad: () => setImage({ ...image, state: "FINISH" }),
+        style: {
+          borderRadius: "8px",
+          marginBlockStart: "12px"
+        }
+      }
+    )
+  );
+}
+__name(RenderImageGenerator, "RenderImageGenerator");
+
+// src/index.tsx
+var { register } = window.SittlyDevtools;
 var pages = FAKER_CATEGORIES.map((category) => {
-  console.log(category);
   return {
     name: `Fake ${category}`,
     icon: getCategoryIcon(category),
     component: () => {
-      return /* @__PURE__ */ React.createElement(List, { id: "faker-categories", items: mapFakerFunctions(category) });
+      if (category === "image")
+        return /* @__PURE__ */ React.createElement(RenderImageGenerator, null);
+      return /* @__PURE__ */ React.createElement(RenderList, { category });
     },
     description: "Generate fake data for " + category,
     route: `/${category}`

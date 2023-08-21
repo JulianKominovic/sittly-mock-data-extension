@@ -4,19 +4,17 @@ import {
   type ExtensionMetadata
 } from 'sittly-devtools/dist/types'
 import { FAKER_CATEGORIES, getCategoryIcon } from './utils'
-import { mapFakerFunctions } from './mappers'
+import { RenderImageGenerator, RenderList } from './components'
 
-const { components, register } = window.SittlyDevtools
-const { Command } = components
-const { List } = Command
+const { register } = window.SittlyDevtools
 
 const pages: ExtensionPages = FAKER_CATEGORIES.map((category) => {
-  console.log(category)
   return {
     name: `Fake ${category}`,
     icon: getCategoryIcon(category),
     component: () => {
-      return <List id="faker-categories" items={mapFakerFunctions(category)} />
+      if (category === 'image') return <RenderImageGenerator />
+      return <RenderList category={category} />
     },
     description: 'Generate fake data for ' + category,
     route: `/${category}`
