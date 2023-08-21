@@ -132,6 +132,33 @@ function mapFakerLoremFunctions(): ListItem[] {
   return [...loremParagraphs]
 }
 
+function mapFakerInternetFunctions(): ListItem[] {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  )
+  const internetFunctions = Object.entries(faker.internet).filter(
+    ([key]) => key !== 'faker'
+  )
+  function handleFunctionReturn(
+    returnValue: string | number[] | string[] | number
+  ): string {
+    if (Array.isArray(returnValue)) {
+      return returnValue.join(', ')
+    }
+    return String(returnValue)
+  }
+  return internetFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key)
+    return {
+      title: humanizedKey,
+      description: 'Generate a random ' + humanizedKey,
+      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onHighlight: () =>
+        onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+    }
+  })
+}
+
 export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   if (fakerCategory === 'airline') {
     return mapFakerAirlineFunctions()
@@ -141,6 +168,9 @@ export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   }
   if (fakerCategory === 'lorem') {
     return mapFakerLoremFunctions()
+  }
+  if (fakerCategory === 'internet') {
+    return mapFakerInternetFunctions()
   }
   return []
 }

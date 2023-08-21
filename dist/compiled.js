@@ -5982,7 +5982,7 @@ function mapFakerLoremFunctions() {
     (state) => state.setContextMenuOptions
   );
   const loremParagraphs = Array.from({
-    length: 30
+    length: 50
   }).map((_55, index) => {
     if ((index + 1) % 5 !== 0)
       return null;
@@ -5996,6 +5996,31 @@ function mapFakerLoremFunctions() {
   return [...loremParagraphs];
 }
 __name(mapFakerLoremFunctions, "mapFakerLoremFunctions");
+function mapFakerInternetFunctions() {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  );
+  const internetFunctions = Object.entries(f51.internet).filter(
+    ([key]) => key !== "faker"
+  );
+  function handleFunctionReturn(returnValue) {
+    if (Array.isArray(returnValue)) {
+      return returnValue.join(", ");
+    }
+    return String(returnValue);
+  }
+  __name(handleFunctionReturn, "handleFunctionReturn");
+  return internetFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key);
+    return {
+      title: humanizedKey,
+      description: "Generate a random " + humanizedKey,
+      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onHighlight: () => onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+    };
+  });
+}
+__name(mapFakerInternetFunctions, "mapFakerInternetFunctions");
 var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   if (fakerCategory === "airline") {
     return mapFakerAirlineFunctions();
@@ -6005,6 +6030,9 @@ var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   }
   if (fakerCategory === "lorem") {
     return mapFakerLoremFunctions();
+  }
+  if (fakerCategory === "internet") {
+    return mapFakerInternetFunctions();
   }
   return [];
 }, "mapFakerFunctions");
