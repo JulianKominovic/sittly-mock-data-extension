@@ -51,26 +51,36 @@ export function getCategoryIcon(category: FakerCategories): React.ReactNode {
   if (category === 'word') return <BsTypeH3 />
 }
 
+export function anyToString(anyObject: any): string {
+  if (Array.isArray(anyObject)) {
+    return anyObject.join(', ')
+  }
+  if (typeof anyObject === 'object') {
+    return Object.values(anyObject).join(', ')
+  }
+  return String(anyObject)
+}
+
 export const FAKER_CATEGORIES: FakerCategories[] = [
   'airline',
   'color',
-  'commerce',
-  'company',
-  'date',
+  // 'commerce',
+  // 'company',
+  // 'date',
   'finance',
-  'git',
-  'hacker',
-  'image',
+  // 'git',
+  // 'hacker',
+  // 'image',
   'internet',
-  'location',
-  'lorem',
-  'music',
-  'person',
-  'number',
-  'phone',
-  'science',
-  'string',
-  'system',
-  'vehicle',
-  'word'
+  // 'location',
+  'lorem'
+  // 'music',
+  // 'person',
+  // 'number',
+  // 'phone',
+  // 'science',
+  // 'string',
+  // 'system',
+  // 'vehicle',
+  // 'word'
 ]

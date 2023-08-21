@@ -247,28 +247,38 @@ function getCategoryIcon(category) {
     return /* @__PURE__ */ React.createElement(BsTypeH3, null);
 }
 __name(getCategoryIcon, "getCategoryIcon");
+function anyToString(anyObject) {
+  if (Array.isArray(anyObject)) {
+    return anyObject.join(", ");
+  }
+  if (typeof anyObject === "object") {
+    return Object.values(anyObject).join(", ");
+  }
+  return String(anyObject);
+}
+__name(anyToString, "anyToString");
 var FAKER_CATEGORIES = [
   "airline",
   "color",
-  "commerce",
-  "company",
-  "date",
+  // 'commerce',
+  // 'company',
+  // 'date',
   "finance",
-  "git",
-  "hacker",
-  "image",
+  // 'git',
+  // 'hacker',
+  // 'image',
   "internet",
-  "location",
-  "lorem",
-  "music",
-  "person",
-  "number",
-  "phone",
-  "science",
-  "string",
-  "system",
-  "vehicle",
-  "word"
+  // 'location',
+  "lorem"
+  // 'music',
+  // 'person',
+  // 'number',
+  // 'phone',
+  // 'science',
+  // 'string',
+  // 'system',
+  // 'vehicle',
+  // 'word'
 ];
 
 // node_modules/.pnpm/@faker-js+faker@8.0.2/node_modules/@faker-js/faker/dist/esm/chunk-TN4M2PHH.mjs
@@ -5959,20 +5969,13 @@ function mapFakerColorFunctions() {
   const colorFunctions = Object.entries(f51.color).filter(
     ([key]) => key !== "faker"
   );
-  function handleFunctionReturn(returnValue) {
-    if (Array.isArray(returnValue)) {
-      return returnValue.join(", ");
-    }
-    return returnValue;
-  }
-  __name(handleFunctionReturn, "handleFunctionReturn");
   return colorFunctions.map(([key, value]) => {
     const humanizedKey = sentenceCase(key);
     return {
       title: humanizedKey,
       description: "Generate a random " + humanizedKey + " color",
-      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
-      onHighlight: () => onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
+      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
     };
   });
 }
@@ -6003,24 +6006,35 @@ function mapFakerInternetFunctions() {
   const internetFunctions = Object.entries(f51.internet).filter(
     ([key]) => key !== "faker"
   );
-  function handleFunctionReturn(returnValue) {
-    if (Array.isArray(returnValue)) {
-      return returnValue.join(", ");
-    }
-    return String(returnValue);
-  }
-  __name(handleFunctionReturn, "handleFunctionReturn");
   return internetFunctions.map(([key, value]) => {
     const humanizedKey = sentenceCase(key);
     return {
       title: humanizedKey,
       description: "Generate a random " + humanizedKey,
-      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
-      onHighlight: () => onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
+      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
     };
   });
 }
 __name(mapFakerInternetFunctions, "mapFakerInternetFunctions");
+function mapFakerFinanceFunctions() {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  );
+  const financeFunctions = Object.entries(f51.finance).filter(
+    ([key]) => key !== "faker"
+  );
+  return financeFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key);
+    return {
+      title: humanizedKey,
+      description: "Generate a random " + humanizedKey,
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
+      onHighlight: () => onHighlight(anyToString(value()), setContextMenuOptions)
+    };
+  });
+}
+__name(mapFakerFinanceFunctions, "mapFakerFinanceFunctions");
 var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   if (fakerCategory === "airline") {
     return mapFakerAirlineFunctions();
@@ -6033,6 +6047,9 @@ var mapFakerFunctions = /* @__PURE__ */ __name((fakerCategory) => {
   }
   if (fakerCategory === "internet") {
     return mapFakerInternetFunctions();
+  }
+  if (fakerCategory === "finance") {
+    return mapFakerFinanceFunctions();
   }
   return [];
 }, "mapFakerFunctions");

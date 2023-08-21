@@ -3,6 +3,7 @@ import { type FakerCategories } from './types'
 import { faker } from '@faker-js/faker'
 import { sentenceCase } from 'sentence-case'
 import { BsClipboard } from 'react-icons/bs'
+import { anyToString } from './utils'
 const { api, hooks } = window.SittlyDevtools
 const { clipboard } = api
 const { pasteToCurrentWindow, copyToClipboard } = clipboard
@@ -90,22 +91,15 @@ function mapFakerColorFunctions(): ListItem[] {
   const colorFunctions = Object.entries(faker.color).filter(
     ([key]) => key !== 'faker'
   )
-  function handleFunctionReturn(
-    returnValue: string | number[] | string[]
-  ): string {
-    if (Array.isArray(returnValue)) {
-      return returnValue.join(', ')
-    }
-    return returnValue
-  }
+
   return colorFunctions.map(([key, value]) => {
     const humanizedKey = sentenceCase(key)
     return {
       title: humanizedKey,
       description: 'Generate a random ' + humanizedKey + ' color',
-      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
       onHighlight: () =>
-        onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+        onHighlight(anyToString(value()), setContextMenuOptions)
     }
   })
 }
@@ -139,22 +133,35 @@ function mapFakerInternetFunctions(): ListItem[] {
   const internetFunctions = Object.entries(faker.internet).filter(
     ([key]) => key !== 'faker'
   )
-  function handleFunctionReturn(
-    returnValue: string | number[] | string[] | number
-  ): string {
-    if (Array.isArray(returnValue)) {
-      return returnValue.join(', ')
-    }
-    return String(returnValue)
-  }
+
   return internetFunctions.map(([key, value]) => {
     const humanizedKey = sentenceCase(key)
     return {
       title: humanizedKey,
       description: 'Generate a random ' + humanizedKey,
-      onClick: () => pasteToCurrentWindow(handleFunctionReturn(value())),
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
       onHighlight: () =>
-        onHighlight(handleFunctionReturn(value()), setContextMenuOptions)
+        onHighlight(anyToString(value()), setContextMenuOptions)
+    }
+  })
+}
+
+function mapFakerFinanceFunctions(): ListItem[] {
+  const setContextMenuOptions = useServices(
+    (state) => state.setContextMenuOptions
+  )
+  const financeFunctions = Object.entries(faker.finance).filter(
+    ([key]) => key !== 'faker'
+  )
+
+  return financeFunctions.map(([key, value]) => {
+    const humanizedKey = sentenceCase(key)
+    return {
+      title: humanizedKey,
+      description: 'Generate a random ' + humanizedKey,
+      onClick: () => pasteToCurrentWindow(anyToString(value())),
+      onHighlight: () =>
+        onHighlight(anyToString(value()), setContextMenuOptions)
     }
   })
 }
@@ -171,6 +178,9 @@ export const mapFakerFunctions = (fakerCategory: FakerCategories) => {
   }
   if (fakerCategory === 'internet') {
     return mapFakerInternetFunctions()
+  }
+  if (fakerCategory === 'finance') {
+    return mapFakerFinanceFunctions()
   }
   return []
 }
